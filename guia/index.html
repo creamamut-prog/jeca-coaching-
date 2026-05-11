@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea tu Ritual Interior - Guía Jeca</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FAF9F6;
+            --text-primary: #1A1A1A;
+            --text-secondary: #4A4A4A;
+            --accent-color: #F08A5D;
+            --accent-hover: #D9784D;
+            --soft-beige: #EEDDCC;
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --container-width: 1000px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.8;
+        }
+
+        .guide-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+        }
+
+        header.guide-header {
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-guide {
+            padding: 6rem 4rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-guide:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            margin-top: 1rem;
+        }
+
+        .accent-text {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: var(--soft-beige);
+            padding: 3rem;
+            border-radius: 4px;
+            margin: 3rem 0;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .step-item {
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .step-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.4;
+            line-height: 1;
+        }
+
+        .step-content h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        blockquote {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-style: italic;
+            text-align: center;
+            margin: 4rem 0;
+            padding: 2rem;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            color: var(--text-secondary);
+        }
+
+        .footer-guide {
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .section-guide {
+                padding: 4rem 2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-image-container {
+                height: 300px;
+            }
+        }
+
+            .guide-container {
+                box-shadow: none;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* Writing Space Styling */
+        .writing-space {
+            width: 100%;
+            min-height: 120px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background-color: #fff;
+            background-image: linear-gradient(rgba(240, 138, 93, 0.1) 1px, transparent 1px);
+            background-size: 100% 2.2rem;
+            line-height: 2.2rem;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            white-space: pre-wrap;
+            position: relative;
+        }
+
+        .writing-space:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(240, 138, 93, 0.1);
+        }
+
+        .writing-space[contenteditable]:empty:before {
+            content: attr(data-placeholder);
+            color: #ccc;
+            font-style: italic;
+        }
+
+        @media print {
+            .writing-space {
+                border: none;
+                border-bottom: 1px solid #eee;
+                background-image: linear-gradient(#eee 1px, transparent 1px);
+                min-height: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="print-btn" onclick="window.print()">Imprimir Guía</button>
+
+    <div class="guide-container">
+        <!-- PORTADA -->
+        <header class="guide-header">
+            <div class="hero-image-container">
+                <img src="cover.png" alt="Crea tu ritual interior">
+            </div>
+            <h1 class="section-title" style="color: white; border: none; margin-bottom: 1rem;">Crea tu ritual interior
+            </h1>
+            <p style="font-size: 1.4rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">Una guía para sentir, explorar
+                y renacer como la mujer que hoy es mamá.</p>
+            <p
+                style="margin-top: 3rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-color);">
+                Por Jeca, mamá y mujer en transformación</p>
+        </header>
+
+        <!-- INTRODUCCIÓN -->
+        <section class="section-guide">
+            <h2 class="section-title">Introducción</h2>
+            <p>Esta guía <strong>está basada</strong> en mi experiencia, en los pasos que seguí y me ayudaron a conectar
+                con la mujer en la que me transformé al ser mamá.</p>
+            <p>Te comparto lo que <strong>usé</strong> como guía para <strong>Sentir, Explorar y Renacer</strong> como
+                la mujer que hoy es mamá.</p>
+
+            <div class="highlight-box">
+                <p>Tómalo como el punto de partida para crear tu propia guía y reconocerte.</p>
+                <p>Te cuento los pasos que me llevaron a crear un ritual, el que me mantiene en equilibrio interno,
+                    incluso cuando las cosas se ponen de <strong>cabeza</strong>.</p>
+            </div>
+
+            <p>Al inicio fueron pequeñas acciones que sostuve en el tiempo de forma repetida para lograr el equilibrio
+                que necesitaba; así nació y se transforma conmigo.</p>
+            <p>Ahora <strong>vos estás</strong> creando tu ritual, con tus propias formas para lograr ese equilibrio y
+                reencontrarte contigo, con tu ser.</p>
+
+            <p>Mi intención es que <strong>vos disfrutes</strong> del proceso mientras conectas con tu renacer como
+                <strong>Mamuta</strong> y exploras tu propia forma de vivir en calma, esa que solo <strong>vos
+                    podés</strong> crear; cuando la encuentres la vas a sentir.
+            </p>
+
+            <p style="text-align: right; font-style: italic; margin-top: 2rem;" class="accent-text">La mejor forma de
+                hacerlo, es la tuya Mamuta.</p>
+        </section>
+
+        <!-- BIENVENIDA -->
+        <section class="section-guide">
+            <h2 class="section-title">Bienvenida a tu Ritual interior</h2>
+            <p>Esta guía va a trazar el camino hacia tu exploración interior. Te va a acompañar a crear tu propio
+                ritual, uno que te funcione y necesites para conectar con tu historia, visualizar tu realidad y
+                construir tu propio proceso de transformación.</p>
+
+            <p>Esa transformación que te dejó la maternidad cuando pasaste de ser una mujer para convertirte en una
+                mujer que ahora es mamá.</p>
+
+            <div class="highlight-box">
+                <p>Una <strong>MAMUTA</strong> con sueños, ideas, ganas de vivir su vida en equilibrio, cuidando a sus
+                    peques y logrando esa conexión especial con ellos, de forma consciente.</p>
+                <p>Eso se da cuando te <strong>permitís</strong> conectar contigo, con tu sentir, tus necesidades y
+                    enfocada en lo importante: priorizar tu bienestar emocional.</p>
+            </div>
+
+            <p>Te abrirá camino para que entiendas que se puede construir un equilibrio entre la mujer y la mamá, sin
+                tener que elegir entre un rol u otro.</p>
+            <p>Cuando descubrís que <strong>podés</strong> darte el mismo amor que les das a otros, empezás a verte y
+                sentirte diferente.</p>
+
+            <p>Permitite abrir tu mente y corazón para descubrir y sentir la valija de herramientas que ya
+                <strong>tenés</strong> vos, en estas páginas. <strong>Sos única y especial</strong>, así que honra y
+                disfruta de tu proceso.
+            </p>
+
+            <p>Sé lo abrumador que puede resultar cuidar tu bienestar mientras <strong>cuidás</strong> de otros, por eso
+                creé esta guía para que transites esta experiencia, que te da como resultado reconectar contigo y tus
+                necesidades, creando una vida más consciente.</p>
+        </section>
+
+        <!-- IMPORTANTE -->
+        <section class="section-guide" style="background: var(--bg-color);">
+            <h2 class="section-title">Importante</h2>
+            <p>Evita compararte con otras madres y mujeres.</p>
+            <p><strong>Buscá tu propia manada.</strong> Un grupo de mujeres con tus valores, intereses, que te
+                <strong>apoyen</strong>, <strong>impulsen</strong> y <strong>crean</strong> en vos. Esas que te alienten
+                y se alegren de tus logros como si fueran propios.
+            </p>
+            <p>Las que van a dar una respuesta con amor y respeto, pero sobre todo honesta, para que te expandas porque
+                saben lo que <strong>podés</strong> dar y <strong>merecés</strong>.</p>
+
+            <p class="accent-text" style="font-size: 1.5rem; margin-top: 2rem;">¡Buscalas! Creeme que existen, en esta
+                manada hay más de una.</p>
+
+            <p><strong>Explorate.</strong> Merecés más que imitar a otros. Crea tu ritual.</p>
+            <p>¡Sin miedo al éxito! <strong>Probá. Generá</strong> nuevas experiencias y <strong>aprovechá</strong> las
+                oportunidades.</p>
+        </section>
+
+        <!-- QUÉ ES UN RITUAL -->
+        <section class="section-guide">
+            <div style="float: right; width: 300px; margin-left: 2rem; margin-bottom: 1rem;"
+                class="hero-image-container">
+                <img src="ritual_space.png" alt="Espacio de Ritual" style="border-radius: 50% 50% 0 0;">
+            </div>
+            <h2 class="section-title">¿Qué es un Ritual?</h2>
+            <p>De seguro <strong>tenés</strong> una “nuez” en tu vida.</p>
+            <p>Me gusta definirlo como la suma de acciones que realizamos con una intención específica. Esa intención
+                nos invita a sentir que el resultado de nuestras acciones será positivo y alineado con nuestros deseos.
+            </p>
+            <p>En la práctica, manteniendo esa intención en tus acciones, el impacto es efectivamente positivo, se
+                materializa. Pasa de ser una intención y se convierte en una realidad.</p>
+
+            <p>Te doy un ejemplo: cuando tenía que rendir un examen solía llevar una nuez que mi mamá me había regalado
+                en el primer examen de facultad, para desearme suerte. Esa nuez me acompañó en cada examen que
+                <strong>di</strong> desde ese día en particular.
+            </p>
+
+            <p>Pasada esa etapa, durante muchos años esa nuez me acompañó en cada nueva etapa, con la intención de
+                obtener un resultado positivo, ya que me daba tranquilidad, seguridad y conexión.</p>
+
+            <p class="accent-text" style="font-size: 1.2rem; margin-top: 2rem;">¿Recordás algún Ritual que hayas
+                realizado alguna vez?</p>
+            <div class="writing-space" contenteditable="true" data-placeholder="Cuéntame sobre ese ritual o momento especial..."></div>
+
+            <p>Con la guía, vamos a conectar con nuestras emociones, habilitarlas, validarlas, gestionarlas y aprender a
+                vivir con ellas.</p>
+            <p>El objetivo es evitar el <em>“¿por qué a mí?”</em>, para fomentar el: <strong>“¿qué me enseña
+                    esto?”</strong>, <strong>“¿qué me está queriendo decir?”</strong>.</p>
+        </section>
+
+        <!-- INTROSPECCIÓN -->
+        <section class="section-guide">
+            <h2 class="section-title">Primer paso: Introspección</h2>
+            <p>Mamuta, vos y yo sabemos muy bien que el simple hecho de hacer algo que nos involucre sólo a nosotras
+                como mujeres nos genera mucha culpa. Solemos pensar <em>“¿quién soy yo para merecer ese tiempo conmigo
+                    misma?”</em>.</p>
+
+            <p>Yo te contesto: <strong>sos una mujer que se convirtió en mamá</strong>, que merece conectar con sus
+                necesidades, emociones, como mamá y mujer en transformación. La maternidad nos atraviesa de tal forma
+                que nos podemos perder, entre lo que fuimos y en lo que nos convertimos.</p>
+
+            <div class="highlight-box">
+                <p>La autocrítica, la culpa, el miedo, la mirada ajena, la comparación constante, son todas emociones
+                    que nos invaden por completo y nos nublan.</p>
+                <p>Tener una red de apoyo es muy importante en la maternidad. De hecho es fundamental para la vida.
+                    Somos seres sociales, vivimos en comunidades, necesitamos de otros naturalmente para sobrevivir.</p>
+            </div>
+
+            <p>Sin embargo, al estar rodeadas de personas, nuestra necesidad es mucho más profunda y, la realidad es que
+                nos sentimos igualmente muy solas. Necesitamos un espacio de apoyo, una red de contención donde se
+                habiliten las emociones, donde conectar con otras mujeres que nos impulsan, nos acompañen y sostengan
+                sin sentirnos, ni ser juzgadas.</p>
+
+            <p>Un espacio donde podamos ser y conectar con nosotras mismas. Pero nada de esto va a suceder si no te
+                aceptás a vos misma, con tus luces y tus sombras. Por eso te invito a <strong>abrazar tu ser</strong>,
+                tu imperfección, tus partes rotas y asumir el compromiso de conectar con la <strong>MAMUTA</strong> de
+                hoy.</p>
+        </section>
+
+        <!-- LA CULPA -->
+        <section class="section-guide" style="background: #FFF5F0;">
+            <h2 class="section-title">La Culpa</h2>
+            <p>La culpa es una emoción. La sentimos cuando percibimos que nos <strong>equivocamos</strong>, que fallamos
+                según nuestros valores morales, personales y sociales.</p>
+            <p>Surge como una señal interna de algo que hemos hecho o dejado de hacer que no se alinea con lo que
+                consideramos correcto. Todas sentimos culpa por algo en algún momento y al convertirnos en mamá esta
+                emoción se intensifica.</p>
+
+            <p>Destaquemos que tiene su lado positivo: si la sentimos en una dosis moderada, puede ser de utilidad. Por
+                eso es importante tomarla como una emoción que nos invita a reflexionar para mejorar o cambiar algunas
+                cosas. Si se torna abrumadora o una carga con la que no podemos avanzar, buscá ayuda
+                <strong>profesional</strong>.
+            </p>
+
+            <div class="highlight-box" style="background: white;">
+                <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Pasos para convivir con la culpa:
+                </h3>
+                <div class="step-item">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>AUTO-REFLEXIÓN</h3>
+                        <p>Intenta ser lo más objetiva posible. ¿Este sentimiento es justificado o excesivo? ¿Es
+                            realmente tu responsabilidad? ¿El peso es propio o heredado?</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>ACEPTACIÓN</h3>
+                        <p>¿Sos una máquina? NO, claro que no. Reconoce que sos humana y que te <strong>podés</strong>
+                            equivocar.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>EXPERIENCIA</h3>
+                        <p>Usa la emoción como oportunidad para crecer. ¿Qué podrías hacer diferente? Si metiste la
+                            pata, <strong>podés</strong> pedir disculpas.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>PEDIR AYUDA</h3>
+                        <p>Fundamental: reconocer que la <strong>necesitás</strong>, pedirla y aceptarla.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEGUNDO PASO -->
+        <section class="section-guide">
+            <h2 class="section-title">Segundo paso: Objetivo</h2>
+            <p>Esta guía te acompañará a descubrir cómo conectar contigo, haciendo lo que <strong>necesitás</strong>,
+                sin tanta culpa y miedo, reuniéndote con tus deseos, sintiéndote merecedora de ese espacio y habitando
+                tu <strong>SER</strong>.</p>
+
+            <p>Te aseguro que cuando logres esa conexión el beneficio es aún mayor, con los nuevos lazos que se generan
+                con tus vínculos. Sí, cuando conectás contigo, conectás mejor con ellos.</p>
+
+            <div class="highlight-box">
+                <p>Eso sí, iniciar el proceso de crear Tu Ritual tiene un costo: asumir el compromiso que mereces como
+                    mujer y mamá, conectar contigo.</p>
+                <p>Como siempre te digo Mamuta, a tu ritmo y con intención, que si deseas que las cosas sucedan
+                    <strong>tenés</strong> que accionar para que ocurran, no sólo basta con desearlo.
+                </p>
+            </div>
+
+            <p>Entonces, manos al papel, pues ya <strong>sabés</strong>, me gusta escribir. Recuerda: esto es para vos.
+                Sé honesta, acá nadie te va a juzgar, esto te acercará un paso más hacia dónde quieres llegar.</p>
+            <p><strong>Plantéate un objetivo real</strong>, no ideal. Algo que quieras hacer, eso que
+                <strong>sabés</strong> te hace bien, aunque logres excusarte para evitarlo.
+            </p>
+
+            <div class="writing-space" contenteditable="true" data-placeholder="Escribe aquí tu objetivo de forma clara, sencilla y específica..."></div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); text-align: center; font-style: italic;">
+                El cambio es interno, de adentro hacia afuera, sólo yo puedo cambiar lo que depende de mí.
+            </p>
+        </section>
+
+        <!-- UN VIAJE A TU INTERIOR -->
+        <section class="section-guide">
+            <h2 class="section-title">Un viaje a tu interior</h2>
+            <p>La gran mayoría de las mujeres solemos estar tan alerta por ”todo lo que hay que hacer”, que vamos por la vida en piloto automático, olvidando lo simple que puede ser conectar con lo que nos hace bien.</p>
+            <p>Al convertirnos en madres nos desconectamos por completo con nosotras como mujeres.</p>
+            
+            <div class="highlight-box">
+                <p>Cosas simples de un día cualquiera: el olor a café recién hecho o el olor a pasto recién cortado, dejar caer una gota de lluvia en la cara, son situaciones ordinarias que nos conectan con una emoción que nos llena el alma, la cual solemos ignorar por ir en busca de ¡todo ya!, en lugar de prestar atención al presente.</p>
+            </div>
+
+            <p>Darte la oportunidad de explorarte como un ser independiente, una mujer que necesita cosas más allá de satisfacer las necesidades de sus hijos, pareja, familia, trabajo es la <strong>CLAVE</strong> para que puedas iniciar tu transformación.</p>
+            
+            <p class="accent-text" style="font-size: 1.2rem; margin-top: 2rem;">¿Qué te frena a ese encuentro con la mujer en la que te convertiste luego de la maternidad?</p>
+            <div class="writing-space" contenteditable="true" data-placeholder="Tómate un momento para responder con honestidad..."></div>
+
+            <p>Sé que no es fácil responder todo esto por eso, te propongo la siguiente pregunta:</p>
+            <p class="accent-text" style="font-size: 1.2rem;">¿Cómo podés integrar eso que necesitás como mujer y sabés que te va a ayudar a conectar contigo, con tu vida hoy como mamá?</p>
+            <div class="writing-space" contenteditable="true" data-placeholder="Piensa en pequeñas acciones cotidianas..."></div>
+            
+            <p style="margin-top: 3rem;">Un objetivo puede ser vivir tu proceso de transformación luego de la maternidad, de una forma coherente con tus necesidades y tu realidad.</p>
+        </section>
+
+        <!-- TERCER PASO -->
+        <section class="section-guide">
+            <h2 class="section-title">Tercer paso: Creá tu Ritual</h2>
+            <p>Te voy a contar cómo crear tu Ritual con un ejemplo. Hace algunos años, viví una situación muy
+                estresante, la cual me <strong>alteró</strong> emocionalmente. Estaba muy angustiada y no le encontraba
+                sentido a lo que me estaba pasando. Necesitaba hacer algo que me aliviara esa rabia.</p>
+
+            <p><strong>Recurrí</strong> a la escritura como herramienta para sentirme más en calma. Mi intención era
+                sacar de mi cabeza todo eso que se cruzaba y me hacía mal.</p>
+
+            <div class="highlight-box">
+                <p>Dato no menor: el 90% de lo que imaginamos nunca ocurre, así que necesitaba que quedara registrado en
+                    algún lado para que no siguiera en mi mente como pelotita de ping pong.</p>
+                <p>Entonces, hace 5 años <strong>inicié</strong> un ritual hacia la calma con la escritura. Libero mi
+                    mente de ideas que rumian, dando espacio a lo que sí quiero mantener y lograr ese día.</p>
+            </div>
+
+            <h3 style="font-family: var(--font-heading); margin-bottom: 2rem;">¿Cómo lo creas?</h3>
+            <ol style="margin-left: 2rem; margin-bottom: 2rem;">
+                <li><strong>Buscá</strong> un lugar cómodo.</li>
+                <li><strong>Elegí</strong> un lugar (afuera, escritorio, cama).</li>
+                <li><strong>Revisá</strong> que tengas lo que necesitás (papel, lápiz, vela).</li>
+                <li><strong>Apartá</strong> un momento del día. No buscamos escribir un libro, solo alivianarte.</li>
+                <li><strong>Escribí</strong>, simplemente escribí. No verifiques coherencia. "No sé qué escribir" es un
+                    buen comienzo.</li>
+                <li><strong>Repetí</strong>. Es un ritual porque se hace una y otra vez con intención.</li>
+            </ol>
+
+            <p class="accent-text" style="font-size: 1.2rem; margin-top: 3rem;">¿Con qué intención vas a realizar tus acciones?</p>
+            <div class="writing-space" contenteditable="true" data-placeholder="Define tu intención para este ritual..."></div>
+
+            <blockquote>
+                "Cuando no nos sale algo, lo volvemos a intentar"
+            </blockquote>
+        </section>
+
+        <!-- SOBRE MI -->
+        <section class="section-guide" id="sobre-mi" style="clear: both;">
+            <h2 class="section-title">Sobre mí</h2>
+            <div style="display: flex; gap: 3rem; align-items: start; flex-wrap: wrap;">
+                <div style="flex: 0 0 180px;">
+                    <img src="jeca.png" alt="Jeca" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 4px solid var(--soft-beige);">
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: left;">
+                    <p class="accent-text" style="font-size: 1.5rem; font-family: var(--font-heading); margin-bottom: 1.5rem;">Soy Jeca, mujer y mamá en transformación.</p>
+                    <p>Fui una mujer ideal y una mamá perfecta. Un día el idealismo se cayó, la maternidad me <strong>cacheteó</strong> y me rompí en pedacitos.</p>
+                    <p>Estuve desconectada hasta que un día me <strong>pregunté</strong>: ¿cómo puedo cambiar esto?</p>
+                    <p>Ese día volví a conectar, me permití <strong>SER</strong> y crear <strong>MI RITUAL INTERIOR</strong>, el que me transformó y me permite vivir en equilibrio entre la mujer y mamá que elijo ser.</p>
+                    
+                    <div class="highlight-box" style="margin: 2rem 0;">
+                        <p style="margin-bottom: 0;">Me hice una promesa y hoy la estoy cumpliendo: <em>“si puedo hacer que le duela un poquito menos a una sola persona por mostrar mi parte más rota, lo voy a hacer y con eso ya valió la pena vivir mi proceso, tal cual fue, hasta Renacer”</em>.</p>
+                    </div>
+
+                    <p>¿Conocés el dicho “haz lo que digo, no lo que hago”?</p>
+                    <p>Por mucho tiempo creí que mi discurso era coherente a mis actos. Un día me crucé con mi sombra, luego de ser atravesada por la maternidad, y descubrí que le decía y criaba a mis hijos para que fueran libres, cuestionadores, felices... pero yo no lo hacía.</p>
+                    <p>Desde que tuve la ilusión de ser mamá, hasta hoy creo que mis peques no son de mi pertenencia, sino de la vida. Eso no quita que quiero ser su lugar seguro siempre y el ejemplo que puedan tener en su propio camino, pero no por lo que digo, sino por lo que hago.</p>
+                    
+                    <p>Así que ese es el motivo de mi transformación: convertirme en una mejor persona a diario como mujer, luego de convertirme en su mamá.</p>
+                    <p>Yo no quiero que hagan lo que les digo porque soy su mamá; por el contrario, si eligen seguir mis pasos que sea por lo que hice yo como mujer, mientras soy su mamá.</p>
+                    
+                    <p>Ellos son el motor principal de esta iniciativa, aunque la razón principal del proyecto más difícil que enfrenté luego de la maternidad, fui yo misma.</p>
+                    <p>Con luces y sombras hoy abrazo lo que soy, conécto con mi realidad y la transformo a mi favor. Te invito a que vos también abraces tu realidad, conéctes y vivas tu propia transformación.</p>
+                    
+                    <p class="accent-text" style="margin-top: 2rem;">Solo te pido un favor: no lo hagas sola. Buscá el apoyo donde más sentido te haga, pero creeme que no sos un bicho raro, somos un montón.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CIERRE -->
+        <section class="section-guide" style="text-align: center; border: none;">
+            <p class="accent-text" style="font-size: 2rem;">¡No estás sola!</p>
+            <p style="font-size: 1.5rem; font-family: var(--font-heading); margin-bottom: 3rem;">Recordá: PODÉS CON TODO; SOLO QUE NO TODO A LA VEZ</p>
+
+            <p>Gracias Mamuta por llegar hasta acá. Regalate un ratito para conectar contigo a través de estas páginas e iniciar el viaje que permite descubrir tu propio Ritual interior.</p>
+
+            <div class="highlight-box" style="display: inline-block; text-align: left; max-width: 600px;">
+                <p><strong>El 03 de octubre de 2026 vas a poder vivir "Reconecta en Manada", una experiencia que te va a expandir.</strong></p>
+                <p>Un encuentro presencial súper íntimo, exclusivo para 10 mamutas. Imaginate compartir una merienda rica, conversar, sentirte escuchada, reflexionar y soltar la mochila sin sentirte juzgada. ¿Te animás?</p>
+                <p>Si sentís que este espacio es para vos, <strong><a href="javascript:void(0)" id="openPostulation" style="color: var(--accent-color); text-decoration: underline;">inscribite en la lista de postulación haciendo clic acá</a></strong> y asegurá tu lugar con nuestro valor especial de lanzamiento.</p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer-guide">
+            <h2 style="font-family: var(--font-heading); margin-bottom: 1rem;">Soy Jeca, mujer y mamá en transformación.
+            </h2>
+            <p>Conectá desde lo simple para abrir camino.</p>
+            <div class="social-links">
+                <a href="#">@jecainzaurralde</a>
+                <a href="#">095 27 60 99</a>
+            </div>
+            <p style="opacity: 0.5; margin-top: 2rem;">Juntas es mejor. 2026</p>
+        </footer>
+    </div>
+
+    <!-- Postulation Modal -->
+    <div id="postulationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="postulation-form">
+                <h2>Postulación a Reconectá</h2>
+                <div class="form-intro">
+                    <p>Gracias por postularte. Antes de iniciar quiero que sepas que no es un taller convencional ni una charla de expertos. Es un círculo de presencia y escucha, diseñado para que te des el permiso de ser vos misma con luces y sombras, sin etiquetas.</p>
+                    <p style="margin-top: 1rem;">Al ser un encuentro íntimo de solo 10 mujeres, me gustaría conocerte un poquito antes de confirmar tu lugar. Por favor, tomate unos minutos para responder con calma.</p>
+                </div>
+
+                <form id="reconectaForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre y Apellido</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp (para contacto directo y logístico)</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+598...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="instagram">¿Cuál es tu usuario de Instagram?</label>
+                        <input type="text" id="instagram" name="instagram" required placeholder="@...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="palabra">Si tuvieras que definir en una palabra qué buscás en este encuentro, ¿cuál sería?</label>
+                        <select id="palabra" name="palabra" required>
+                            <option value="" disabled selected>Seleccioná una opción...</option>
+                            <option value="calma">Calma</option>
+                            <option value="claridad">Claridad</option>
+                            <option value="escucha">Escucha</option>
+                            <option value="pausa">Pausa</option>
+                            <option value="compañía">Compañía</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivacion">¿Qué te motivó a querer participar en "Reconectá" en este momento específico de tu vida?</label>
+                        <textarea id="motivacion" name="motivacion" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Te sentís cómoda con la idea de dejar tu teléfono de lado durante las 3 horas?</label>
+                        <div style="display: flex; gap: 2rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+                                <input type="radio" name="telefono" value="si" required style="width: auto;"> Sí
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+                                <input type="radio" name="telefono" value="no" style="width: auto;"> No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alergias">¿Tenés alguna restricción alimentaria o alergia?</label>
+                        <textarea id="alergias" name="alergias"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Cómo te sientes con la idea de salir con una mirada clara en lugar de respuestas listas?</label>
+                        <textarea id="reflexion_respuestas" name="reflexion_respuestas" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Si tuvieras que soltar hoy una expectativa, ¿cuál sería?</label>
+                        <textarea id="expectativa" name="expectativa" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Qué es aquello que hoy te cuesta decir en voz alta?</label>
+                        <textarea id="voz_alta" name="voz_alta" required></textarea>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="compromiso" name="compromiso" required>
+                        <label for="compromiso">Entiendo que mi lugar se asegura una vez confirmado el pago y que mi presencia es fundamental.</label>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; margin-top: 3rem;">Enviar Postulación</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("postulationModal");
+        const btn = document.getElementById("openPostulation");
+        const span = document.querySelector(".close-modal");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+            document.body.classList.add("modal-open");
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.classList.remove("modal-open");
+            }
+        }
+
+        // Form Submission to Google Sheets
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxWGcjjUe_1PBEOYZ63CMQu9jiXFJciPGB5GcuxjBfXP2Dvcim7xQQJO3hFLqxJBS8/exec';
+        const form = document.getElementById('reconectaForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Enviando...';
+
+            const formData = new FormData(form);
+            const params = new URLSearchParams();
+            for (const pair of formData) {
+                params.append(pair[0], pair[1]);
+            }
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: params,
+                mode: 'no-cors'
+            })
+                .then(() => {
+                    alert("¡Gracias por tu apertura! Tu postulación ha sido registrada. Me pondré en contacto contigo pronto.");
+                    modal.style.display = "none";
+                    document.body.classList.remove("modal-open");
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Enviar Postulación';
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Hubo un error al enviar. Por favor, intenta de nuevo o contáctame por WhatsApp.");
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Enviar Postulación';
+                });
+        });
+    </script>
+</body>
+
+</html>

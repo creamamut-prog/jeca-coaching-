@@ -1,0 +1,14 @@
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar carpetas de respaldo locales
+backup_proyectojeca/
+*.bak
+
+# Ignorar logs
+*.log
+
+# Ignorar configuraciones de herramientas
+.gemini/
+.vscode/
