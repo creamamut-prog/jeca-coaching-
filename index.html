@@ -223,7 +223,7 @@ Gracias por hacerme entender que merezco tiempo para mí y lo valioso que es. De
                         <h2>Reconecta en manada</h2>
                         <p style="font-size: 1.4rem; line-height: 1.4; margin-bottom: 2rem;">Un encuentro presencial íntimo para compartir, sentir y renovar la energía en manada.</p>
                         <p style="margin-bottom: 2rem;">Un círculo de presencia y escucha, diseñado para que te des el permiso de ser vos misma, sin etiquetas ni juicios. Recordamos lo bien que nos hace volver a lo simple.</p>
-                        <a href="#" target="_blank" class="btn btn-primary">Postularse</a>
+                        <a href="javascript:void(0)" id="openPostulation" class="btn btn-primary">Postularse</a>
                     </div>
                     <div style="background: var(--white); padding: 3rem; border-radius: 4px; border: 1px solid rgba(0,0,0,0.05);"
                         data-reveal>
@@ -364,6 +364,93 @@ No existe un único ritual, no hay un ritual correcto y otro incorrecto. Sé que
         </div>
     </div>
 
+    <!-- Postulation Modal -->
+    <div id="postulationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closePostulationModal">&times;</span>
+            <div class="postulation-form">
+                <h2 style="font-family: var(--font-heading); margin-bottom: 1.5rem;">Postulación a Reconectá</h2>
+                <div class="form-intro">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Gracias por postularte. Antes de iniciar quiero que sepas que no es un taller convencional ni una charla de expertos. Es un círculo de presencia y escucha, diseñado para que te des el permiso de ser vos misma con luces y sombras, sin etiquetas.</p>
+                    <p style="color: var(--text-secondary);">Al ser un encuentro íntimo de solo 10 mujeres, me gustaría conocerte un poquito antes de confirmar tu lugar. Por favor, tomate unos minutos para responder con calma.</p>
+                </div>
+
+                <form id="reconectaForm" style="text-align: left;">
+                    <div class="form-group">
+                        <label for="nombre">Nombre y Apellido</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp (para contacto directo y logístico)</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+598...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="instagram">¿Cuál es tu usuario de Instagram?</label>
+                        <input type="text" id="instagram" name="instagram" required placeholder="@...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="palabra">Si tuvieras que definir en una palabra qué buscás en este encuentro, ¿cuál sería?</label>
+                        <select id="palabra" name="palabra" required>
+                            <option value="" disabled selected>Seleccioná una opción...</option>
+                            <option value="calma">Calma</option>
+                            <option value="claridad">Claridad</option>
+                            <option value="escucha">Escucha</option>
+                            <option value="pausa">Pausa</option>
+                            <option value="compañía">Compañía</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivacion">¿Qué te motivó a querer participar en "Reconectá" en este momento específico de tu vida?</label>
+                        <textarea id="motivacion" name="motivacion" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Te sentís cómoda con la idea de dejar tu teléfono de lado durante las 3 horas?</label>
+                        <div style="display: flex; gap: 2rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+                                <input type="radio" name="telefono" value="si" required style="width: auto;"> Sí
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+                                <input type="radio" name="telefono" value="no" style="width: auto;"> No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alergias">¿Tenés alguna restricción alimentaria o alergia?</label>
+                        <textarea id="alergias" name="alergias"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Cómo te sentís con la idea de salir con una mirada clara en lugar de respuestas listas?</label>
+                        <textarea id="reflexion_respuestas" name="reflexion_respuestas" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Si tuvieras que soltar hoy una expectativa, ¿cuál sería?</label>
+                        <textarea id="expectativa" name="expectativa" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Qué es aquello que hoy te cuesta decir en voz alta?</label>
+                        <textarea id="voz_alta" name="voz_alta" required></textarea>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="compromiso" name="compromiso" required>
+                        <label for="compromiso">Entiendo que mi lugar se asegura una vez confirmado el pago y que mi presencia es fundamental.</label>
+                    </div>
+
+                    <button type="submit" id="submitReconectaBtn" class="btn btn-primary" style="width: 100%; margin-top: 3rem;">Enviar Postulación</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Modal Logic for Guide
         const guideModal = document.getElementById("guideModal");
@@ -384,6 +471,75 @@ No existe un único ritual, no hay un ritual correcto y otro incorrecto. Sé que
         closeGuideBtn.onclick = function() {
             guideModal.style.display = "none";
             document.body.classList.remove("modal-open");
+        }
+
+        // Modal Logic for Postulation
+        const postulationModal = document.getElementById("postulationModal");
+        const openPostulationBtn = document.getElementById("openPostulation");
+        const closePostulationBtn = document.getElementById("closePostulationModal");
+        const reconectaForm = document.getElementById("reconectaForm");
+        const submitReconectaBtn = document.getElementById("submitReconectaBtn");
+        
+        const RECONECTA_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWGcjjUe_1PBEOYZ63CMQu9jiXFJciPGB5GcuxjBfXP2Dvcim7xQQJO3hFLqxJBS8/exec';
+
+        if (openPostulationBtn) {
+            openPostulationBtn.onclick = function() {
+                postulationModal.style.display = "block";
+                document.body.classList.add("modal-open");
+            }
+        }
+
+        if (closePostulationBtn) {
+            closePostulationBtn.onclick = function() {
+                postulationModal.style.display = "none";
+                document.body.classList.remove("modal-open");
+            }
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target == guideModal) {
+                guideModal.style.display = "none";
+                document.body.classList.remove("modal-open");
+            }
+            if (event.target == postulationModal) {
+                postulationModal.style.display = "none";
+                document.body.classList.remove("modal-open");
+            }
+        }
+
+        if (reconectaForm) {
+            reconectaForm.addEventListener('submit', e => {
+                e.preventDefault();
+                submitReconectaBtn.disabled = true;
+                submitReconectaBtn.innerText = 'Enviando...';
+
+                const formData = new FormData(reconectaForm);
+                const params = new URLSearchParams();
+                for (const pair of formData) {
+                    params.append(pair[0], pair[1]);
+                }
+
+                fetch(RECONECTA_SCRIPT_URL, { 
+                    method: 'POST', 
+                    body: params,
+                    mode: 'no-cors'
+                })
+                .then(() => {
+                    alert("¡Gracias por tu apertura! Tu postulación ha sido registrada. Me pondré en contacto contigo pronto.");
+                    postulationModal.style.display = "none";
+                    document.body.classList.remove("modal-open");
+                    reconectaForm.reset();
+                    submitReconectaBtn.disabled = false;
+                    submitReconectaBtn.innerText = 'Enviar Postulación';
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Hubo un error al enviar. Por favor, intenta de nuevo o contáctame por WhatsApp.");
+                    submitReconectaBtn.disabled = false;
+                    submitReconectaBtn.innerText = 'Enviar Postulación';
+                });
+            });
         }
 
         guideForm.addEventListener('submit', e => {
